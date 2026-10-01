@@ -110,6 +110,15 @@ footer {
   margin: 10px;
 }
 
+/* Heading that screen readers see but is not shown on the page */
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
 /* ---------- Phone layout ---------- */
 @media (max-width: 600px) {
   .side { display: none; }     /* hide empty side columns on small screens */
