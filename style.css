@@ -1,0 +1,117 @@
+/* ---------- Basics ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: monospace;
+  background: #fff;
+  min-height: 100vh;
+  display: flex;               /* Flexbox: header / main / footer stacked */
+  flex-direction: column;
+}
+
+/* ---------- Header + navigation ---------- */
+header.site-header {
+  display: flex;               /* Flexbox: nav on the left, avatar on the right */
+  justify-content: space-between;
+  align-items: center;
+  background: #c0c0c0;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+nav { display: flex; gap: 5px; }
+
+nav a {
+  color: #000;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+/* RULE 1: pseudo-class -> background changes on hover */
+nav a:hover { background: #1f497d; color: #fff; }
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #888;
+  display: inline-block;
+}
+
+/* ---------- Main layout ---------- */
+main {
+  flex: 1;
+  display: flex;               /* Flexbox: side columns + content */
+  gap: 10px;
+  margin: 0 10px;
+}
+
+.side { flex: 1; background: #bbb; border-radius: 8px; }
+.content { flex: 2; display: flex; flex-direction: column; gap: 10px; }
+
+/* ---------- Posts ---------- */
+article {
+  background: #d9d9d9;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* RULE 2: child selector -> only the header directly inside an article */
+article > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* RULE 3: descendant selector -> every <img> inside an article */
+article img { width: 100%; border-radius: 4px; margin-top: 8px; }
+
+/* RULE 4: adjacent sibling -> the <p> right after an <img> */
+article img + p { font-weight: bold; }
+
+/* RULE 5: general sibling -> every .like button after a <p> */
+article p ~ .like { background: none; border: none; font-size: 1.2em; cursor: pointer; }
+
+/* ---------- Forms (addPost + login) ---------- */
+.card {
+  background: #d9d9d9;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 350px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.card form { display: flex; flex-direction: column; gap: 12px; }
+
+.card label { display: flex; flex-direction: column; text-align: left; gap: 4px; }
+
+.card a { color: #00a2e8; }
+
+button.primary {
+  background: #1f497d;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+button.primary:hover { background: #2e6bb5; }
+
+/* ---------- Footer ---------- */
+footer {
+  background: #c0c0c0;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+/* ---------- Phone layout ---------- */
+@media (max-width: 600px) {
+  .side { display: none; }     /* hide empty side columns on small screens */
+  .content { flex: 1; }
+}
